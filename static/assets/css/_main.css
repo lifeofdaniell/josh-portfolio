@@ -1,0 +1,7 @@
+.no-touch, .tool-block {
+	pointer-events: none;
+  user-select: none;
+}
+.button {
+	pointer-events: auto;
+}

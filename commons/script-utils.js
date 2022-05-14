@@ -11,10 +11,10 @@ export default () => {
       src: '/js/override-alert.js',
       type: 'text/javascript'
     },
-  /*   {
-      src: '/js/vumele.js',
+    {
+      src: '/js/webflow.js',
       type: 'text/javascript',
       body: 'true'
-    } */
+    }
   ]
 }

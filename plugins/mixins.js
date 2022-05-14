@@ -9,7 +9,7 @@ Vue.mixin(Vue2Filters.mixin)
 Vue.mixin({
   computed: {
     mxDescription () {
-      return 'Vumele'
+      return 'Josh\'s Portfolio'
     }
   },
   methods: {

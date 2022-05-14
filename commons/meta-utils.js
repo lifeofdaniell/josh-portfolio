@@ -3,8 +3,8 @@ import { withHttp } from './utils'
 
 const type = 'Website'
 let url = process.env.SITE_URL
-const title = 'Nuxt SSR LocomotiveScroll GSAP Boilerplate'
-const siteName = 'Nuxt SSR LocomotiveScroll GSAP'
+const title = 'Joshua Oladiti | Portfolio'
+const siteName = 'Josh\'s Portfolio'
 const description = ''
 let mainImage = '/webclip.png'
 const twitterCard = 'summary_large_image' // summary, summary_large_image, app, or player.

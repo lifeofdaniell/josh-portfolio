@@ -1,6 +1,6 @@
 // PWA properties
-const name = 'Nuxt SSR LocomotiveScroll GSAP Boilerplate'
-const shortName = 'Nuxt SSR LocomotiveScroll GSAP'
+const name = 'Joshua Oladiti | Portfolio'
+const shortName = 'Josh\'s Portfolio'
 const description = ''
 
 export const getManifest = (manifest) => {
@@ -9,7 +9,7 @@ export const getManifest = (manifest) => {
     short_name: (manifest && manifest.short_name) || shortName,
     description: (manifest && manifest.description) || description,
     background_color: '#ffffff',
-    theme_color: '#fb528d',
+    theme_color: '#000000',
     lang: 'en'
   }
 }

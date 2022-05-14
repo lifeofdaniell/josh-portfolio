@@ -1,0 +1,12 @@
+<svg width="84" height="100" viewBox="0 0 84 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="49.5" cy="35.7" r="17.25" fill="white" stroke="black" stroke-width="0.5"/>
+<path d="M62.039 10.05L37.161 10.05L23.3882 40.35L75.8117 40.35L62.039 10.05Z" fill="#F7F7F7" stroke="#222222" stroke-width="0.5"/>
+<mask id="path-3-inside-1_111_181" fill="white">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.8V0L84 3.19093e-06V11.2L9.8 11.2V99.4H0V11.2V2.8Z"/>
+</mask>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.8V0L84 3.19093e-06V11.2L9.8 11.2V99.4H0V11.2V2.8Z" fill="#F7F7F7"/>
+<path d="M0 0L1.89936e-08 -0.5H-0.5V0H0ZM84 3.19093e-06H84.5V-0.499997L84 -0.499997V3.19093e-06ZM84 11.2V11.7H84.5V11.2H84ZM9.8 11.2V10.7H9.3V11.2H9.8ZM9.8 99.4V99.9H10.3V99.4H9.8ZM0 99.4H-0.5V99.9H0V99.4ZM-0.5 0V2.8H0.5V0H-0.5ZM84 -0.499997L1.89936e-08 -0.5L-1.89936e-08 0.5L84 0.500003V-0.499997ZM84.5 11.2V3.19093e-06H83.5V11.2H84.5ZM9.8 11.7L84 11.7V10.7L9.8 10.7V11.7ZM10.3 99.4V11.2H9.3V99.4H10.3ZM0 99.9H9.8V98.9H0V99.9ZM-0.5 11.2V99.4H0.5V11.2H-0.5ZM-0.5 2.8V11.2H0.5V2.8H-0.5Z" fill="#222222" mask="url(#path-3-inside-1_111_181)"/>
+<path d="M36.0453 54.2L30.1211 60.4727" stroke="black" stroke-width="0.5"/>
+<path d="M62.9547 54.2L68.8789 60.4727" stroke="black" stroke-width="0.5"/>
+<path d="M48.8027 57.0333V64.7" stroke="black" stroke-width="0.5"/>
+</svg>

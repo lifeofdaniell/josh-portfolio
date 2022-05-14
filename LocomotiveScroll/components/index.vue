@@ -72,6 +72,7 @@ export default {
 }
 
 .has-scroll-smooth .js-locomotive {
+  opacity: 1 !important;
   min-height: 100vh;
   width: 100%;
   position: relative;
@@ -84,6 +85,14 @@ export default {
 .has-scroll-smooth .js-locomotive.horizontal {
   width: 100%;
   display: block;
+}
+html.has-scroll-smooth {
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 @media (min-width: 769px) {

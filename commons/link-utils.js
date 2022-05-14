@@ -1,7 +1,7 @@
 // css-links & favicons
 export default () => {
   return [
-   /*  {
+    {
       rel: 'icon',
       type: 'image/ico',
       href: '/assets/images/favicon.png'
@@ -17,12 +17,12 @@ export default () => {
     },
     {
       rel: 'stylesheet',
-      href: '/assets/css/components.css'
+      href: '/assets/css/webflow.css'
     },
     {
       rel: 'stylesheet',
-      href: '/assets/css/vumele.css'
-    }, */
+      href: '/assets/css/joshportfolios.webflow.css'
+    },
     {
       rel: 'stylesheet',
       href: '/assets/css/_main.css'

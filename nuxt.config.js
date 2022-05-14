@@ -9,12 +9,14 @@ export default {
 
  env: {
     siteURL: process.env.SITE_URL,
-    baseURL: process.env.BASE_URL
+    baseURL: process.env.BASE_URL,
+    mediaURL: process.env.MEDIA_URL,
+    token: process.env.TOKEN
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Nuxt SSR LocomotiveScroll GSAP Boilerplate',
+    title: 'Joshua Oladiti | Portfolio',
     meta: [...metaUtils()],
     link: [...linkUtils()],
     script: [...scriptUtils()]
@@ -40,7 +42,6 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
