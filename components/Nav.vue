@@ -10,7 +10,7 @@
         Visual Experience Designer - Joshua Oladiti&#x27;s Portfolio
       </div>
     </div>
-    <a aria-current="page" class="logo w-inline-block w--current" href="index.html"></a>
+    <nuxt-link aria-current="page" class="logo w-inline-block w--current" to="/"></nuxt-link>
   </div>
 </template>
 

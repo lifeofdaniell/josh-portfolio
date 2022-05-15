@@ -48,27 +48,69 @@ Vue.prototype.$horizontalScroll = (refContainer) => {
   ScrollTrigger.matchMedia({
     // desktop
     '(min-width: 768px)': () => {
-    gsap.to(refContainer, {
+      // const horizontalScroll =
+        gsap.to(refContainer, {
+         force3D: false,
         x: () => -(refContainer.scrollWidth - window.innerWidth) + 'px',
         ease: 'none',
         scrollTrigger: {
+          ease: 'none',
           trigger: refContainer,
           invalidateOnRefresh: true,
           pin: true,
-          scrub: 3,
+          scrub: 2,
           end: () => '+=' + refContainer.offsetWidth
         }
       })
-    /*   gsap.to('.scroll-progress-bar', {
-        width: '107%',
-        scrollTrigger: {
-          containerAnimation: horizontalScroll,
-          trigger: refContainer,
-          start: 'left 0%',
-          scrub: true,
-          end: () => '+=' + refContainer.scrollWidth
-        }
-      }) */
+      // const tl = gsap.timeline({})
+      //  tl.to('.bus', {
+      //   translateX: '18vw',
+      //   force3D: false,
+      //   scrollTrigger: {
+      //     containerAnimation: horizontalScroll,
+      //     ease: 'none',
+      //     trigger: '.about-section',
+      //     start: 'left 90%',
+      //     scrub: true,
+      //     end: 'left 0%'
+      //   }
+      //  })
+      //  tl.to('.bus', {
+      //   translateX: '36vw',
+      //   force3D: false,
+      //   scrollTrigger: {
+      //     containerAnimation: horizontalScroll,
+      //     ease: 'none',
+      //     trigger: '.project-section.first',
+      //     start: 'left 90%',
+      //     scrub: true,
+      //     end: 'left 0%'
+      //   }
+      //  }, '>')
+      //  tl.to('.bus', {
+      //   translateX: '54vw',
+      //   force3D: false,
+      //   scrollTrigger: {
+      //     containerAnimation: horizontalScroll,
+      //     ease: 'none',
+      //     trigger: '.project-section.fun',
+      //     start: 'left 90%',
+      //     scrub: true,
+      //     end: 'left 0%'
+      //   }
+      //  }, '>')
+      //  tl.to('.bus', {
+      //   translateX: '72vw',
+      //   force3D: false,
+      //   scrollTrigger: {
+      //     containerAnimation: horizontalScroll,
+      //     ease: 'none',
+      //     trigger: '.contact-section',
+      //     start: 'left 90%',
+      //     scrub: true,
+      //     end: 'left 0%'
+      //   }
+      //  }, '>')
     }
   })
 }

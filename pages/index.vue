@@ -4,14 +4,6 @@
     <Menu />
     <BusTrack />
     <div ref="container" class="container">
-      <!-- <div class="bus-track">
-        <div class="bus-stop"></div>
-        <div class="bus-stop"></div>
-        <div class="bus-stop"></div>
-        <div class="bus-stop"></div>
-        <div class="bus-stop"></div>
-        <div class="bus"></div>
-      </div> -->
       <div class="hero">
         <div class="hero-canvas__wrapper">
           <div class="hero-canvas">
@@ -129,68 +121,34 @@
           </div>
         </div>
       </div>
-      <div class="project-section">
+      <div class="project-section first">
         <div class="project-section__inner">
           <div class="project-section__header">
             <h2>Recent Projects</h2>
           </div>
           <div class="project-block__wrapper">
-            <a class="project-block bottom w-inline-block" href="open.html">
+            <nuxt-link v-for="project in projectsData.data" :key="project.id" class="project-block w-inline-block" :to="'projects/' + project.attributes.slug">
               <div class="project-block__inner">
-                <div class="project-image__block"><img
-                  alt=""
-                  class="image"
-                  loading="lazy"
-                  src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg"></div>
+                <div class="project-image__block">
+                  <img
+                    alt=""
+                    class="image"
+                    loading="lazy"
+                    :src="project.attributes.cover_image.data !== null
+                      ? project.attributes.cover_image.data.attributes.url
+                      : require('static/assets/images/placeholderimg.svg')">
+                </div>
                 <div class="project-details__block">
-                  <div>Igugu Global</div>
-                  <div class="project-type">Brand Identity Refresh, Print Design</div>
+                  <div>
+                    {{ project.attributes.name }}
+                  </div>
+                  <div class="project-type">
+                    {{ project.attributes.project_type }}
+                  </div>
                 </div>
               </div>
               <div class="project-block__double"></div>
-            </a>
-            <a class="project-block w-inline-block" href="open.html">
-              <div class="project-block__inner">
-                <div class="project-image__block"><img
-                  alt=""
-                  class="image"
-                  loading="lazy"
-                  src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg"></div>
-                <div class="project-details__block">
-                  <div>GymCapsule</div>
-                  <div class="project-type">Branding, Print Design</div>
-                </div>
-              </div>
-              <div class="project-block__double"></div>
-            </a>
-            <a class="project-block bottom w-inline-block" href="open.html">
-              <div class="project-block__inner">
-                <div class="project-image__block"><img
-                  alt=""
-                  class="image"
-                  loading="lazy"
-                  src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg"></div>
-                <div class="project-details__block">
-                  <div>CW Real Estate</div>
-                  <div class="project-type">Rebrand, Publications, Website Design</div>
-                </div>
-              </div>
-              <div class="project-block__double"></div>
-            </a>
-            <a class="project-block w-inline-block" href="open.html">
-              <div class="project-block__inner">
-                <div class="project-image__block"><img
-                  alt=""
-                  class="image"
-                  loading="lazy"
-                  src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg"></div>
-                <div class="project-details__block">
-                  <div>Change360</div>
-                  <div class="project-type">Branding, Print Design, Motion</div>
-                </div>
-              </div>
-              <div class="project-block__double"></div>
-            </a>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -209,9 +167,9 @@
                   alt=""
                   class="image"
                   loading="lazy"
-                  src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg"></div>
+                  src="https://res.cloudinary.com/areoladaniel-com/image/upload/v1652466022/Frame_5_c829c4f77e.jpg"></div>
                 <div class="project-details__block">
-                  <div>Igugu Global</div>
+                  <div>Moovies</div>
                 </div>
               </div>
               <div class="project-block__double"></div>
@@ -224,7 +182,7 @@
                   alt=""
                   class="image"
                   loading="lazy"
-                  src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg"></div>
+                  src="https://res.cloudinary.com/areoladaniel-com/image/upload/v1652466024/Frame_6_7aed7aa1b8.jpg"></div>
                 <div class="project-details__block">
                   <div>Explore Music 🌴</div>
                 </div>
@@ -304,7 +262,22 @@
 </template>
 
 <script>
+if (!globalThis.document) {
+  global.document = {}
+}
   export default {
+    asyncData({ store, error }) {
+      const fetchProjects = store.dispatch('fetchContent', {
+        page: 'projects'
+      })
+      return Promise.all([fetchProjects])
+      .then((responses) => {
+      const [projectsData] = responses
+       return { projectsData }
+      })
+      .catch(responseError => error(responseError))
+    },
+
     data () {
       return {}
     },
@@ -343,14 +316,24 @@
         this.$initWebflow()
       })
       this.$nuxt.$emit('update-locomotive')
-       this.$horizontalScroll(this.$refs.container)
+      this.$horizontalScroll(this.$refs.container)
+      this.styleProjects()
     },
 
-    // updated () {
-    //   this.$initScrolltrigger(this.$refs.scroller.locomotive)
-    // },
+    updated () {
+      // this.styleProjects()
+    },
 
-    methods: {}
+    methods: {
+      styleProjects() {
+        const projects = document.querySelectorAll('.project-block')
+        projects.forEach((item, index) => {
+          if (index % 2 === 0) {
+            item.classList.add('bottom')
+          }
+        })
+      }
+    }
   }
 
 </script>

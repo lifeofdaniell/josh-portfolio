@@ -54,7 +54,7 @@ export const actions = {
     const projectURL = process.env.baseURL + '/projects?filters[slug]='
     return new Promise((resolve, reject) => {
       this.$axios
-        .$get(projectURL + payload.slug, {
+        .$get(projectURL + payload.slug + '&populate=*', {
           headers: {
             Authorization: `Bearer ${token}`
           },
