@@ -3,6 +3,7 @@
     <Nav />
     <Menu />
     <BusTrack />
+
     <div ref="container" class="container">
       <div class="hero">
         <div class="hero-canvas__wrapper">
@@ -197,66 +198,7 @@
           Fun Projects
         </div>
       </div>
-      <div class="contact-section">
-        <div class="billboard-container">
-          <div class="billboard-wrapper">
-            <div class="billboard">
-              <div class="billboard-inner">
-                <h1><strong>Let&#x27;s make great stuff together!</strong></h1>
-                <div class="billboard-subtext">
-                  Feel free to reach out if you want to work with me or collaborate on a project. 👋🏾
-                </div>
-              </div>
-              <div class="copyright">
-                Copyright © 2022 Joshua Oladiti. All rights reserved
-              </div>
-            </div>
-            <div class="billboard__double"></div>
-            <div class="lamp"></div>
-            <div class="lamp right"></div>
-          </div>
-          <div class="billboard-stand"></div>
-        </div>
-        <div class="contact-block">
-          <a class="button mb-20 w-inline-block" href="#">
-            <div class="button__inner contact">
-              <div>Email</div>
-            </div>
-            <div class="button__double"></div>
-          </a>
-          <a class="button mb-20 w-inline-block" href="#">
-            <div class="button__inner contact">
-              <div>Behance</div>
-            </div>
-            <div class="button__double"></div>
-          </a>
-          <a class="button mb-20 w-inline-block" href="#">
-            <div class="button__inner contact">
-              <div>Linkedin</div>
-            </div>
-            <div class="button__double"></div>
-          </a>
-          <a class="button mb-20 w-inline-block" href="#">
-            <div class="button__inner contact">
-              <div>Twitter</div>
-            </div>
-            <div class="button__double"></div>
-          </a>
-        </div>
-        <div class="credits">
-          <div class="sbold">
-            Credits
-          </div>
-          <div>Motion Extras - Godwin Olatunde<br></div>
-          <div>Frontend Developer - Areola Daniel</div>
-          <a class="button mt-50 w-inline-block" href="#">
-            <div class="button__inner">
-              <div>Back to Home</div>
-            </div>
-            <div class="button__double"></div>
-          </a>
-        </div>
-      </div>
+      <ContactSection />
     </div>
   </div>
 </template>
@@ -318,10 +260,6 @@ if (!globalThis.document) {
       this.$nuxt.$emit('update-locomotive')
       this.$horizontalScroll(this.$refs.container)
       this.styleProjects()
-    },
-
-    updated () {
-      // this.styleProjects()
     },
 
     methods: {

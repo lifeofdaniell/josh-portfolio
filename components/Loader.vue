@@ -74,6 +74,7 @@ export default {
   transition: transform 1000ms ease;
 }
 .loader {
+  z-index: 9999;
   transition: opacity 400ms ease;
 }
 </style>

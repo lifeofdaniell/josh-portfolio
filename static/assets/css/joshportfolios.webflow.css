@@ -180,8 +180,10 @@ p {
 
 .bus-track {
   position: fixed;
-  left: 0px;
-  bottom: 0px;
+  left: 0%;
+  top: auto;
+  right: 0%;
+  bottom: 0%;
   z-index: 1;
   display: -webkit-box;
   display: -webkit-flex;
@@ -226,7 +228,7 @@ p {
 
 .bus {
   position: absolute;
-  left: 1vw;
+  left: 0vw;
   top: -45px;
   width: 144px;
   height: 60px;
@@ -234,6 +236,8 @@ p {
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
 }
 
 .hero {
@@ -678,16 +682,13 @@ p {
 
 .project-block.other {
   width: 335px;
-  height: 340px;
+  height: auto;
 }
 
 .project-block__inner {
   position: relative;
   z-index: 2;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   width: 100%;
   height: 100%;
   -webkit-box-orient: vertical;
@@ -727,12 +728,7 @@ p {
 }
 
 .project-image__block.other {
-  height: auto;
-  max-height: 250px;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  height: 250px;
 }
 
 .project-details__block {
@@ -764,6 +760,8 @@ p {
 }
 
 .project-details__block.other {
+  padding-top: 20px;
+  padding-bottom: 30px;
   font-size: 18px;
   line-height: 26px;
 }
@@ -850,6 +848,12 @@ p {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.contact-section.inner {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .billboard-wrapper {
@@ -1092,6 +1096,7 @@ p {
   -ms-flex-pack: center;
   justify-content: center;
   background-color: #000;
+  opacity: 0;
   -webkit-transform: translate(-100%, 0px);
   -ms-transform: translate(-100%, 0px);
   transform: translate(-100%, 0px);
@@ -1145,7 +1150,7 @@ p {
   top: 0%;
   right: 0%;
   bottom: 0%;
-  z-index: 101;
+  z-index: 9999;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1225,6 +1230,10 @@ p {
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
+  -webkit-transition: -webkit-transform 450ms ease;
+  transition: -webkit-transform 450ms ease;
+  transition: transform 450ms ease;
+  transition: transform 450ms ease, -webkit-transform 450ms ease;
 }
 
 .project-hero {
@@ -1277,12 +1286,12 @@ p {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(80%, rgba(0, 0, 0, 0.15)));
-  background-image: linear-gradient(180deg, #fff, rgba(0, 0, 0, 0.15) 80%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(hsla(0, 0%, 100%, 0)), to(rgba(0, 0, 0, 0.3)));
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0), rgba(0, 0, 0, 0.3));
 }
 
 .project-credits__inner {
-  max-width: 215px;
+  max-width: 150px;
 }
 
 .project-content {
@@ -1303,8 +1312,7 @@ p {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 100px 5vw;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -1342,14 +1350,14 @@ p {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   grid-column-gap: 40px;
-  grid-row-gap: 45px;
+  grid-row-gap: 65px;
 }
 
 .project-grid__column {
   -webkit-box-flex: 0;
-  -webkit-flex: 0 48%;
-  -ms-flex: 0 48%;
-  flex: 0 48%;
+  -webkit-flex: 0 47%;
+  -ms-flex: 0 47%;
+  flex: 0 47%;
 }
 
 .project-grid__column.wide {
@@ -1364,7 +1372,7 @@ p {
 
 .project-grid__image {
   width: 100%;
-  height: 600px;
+  height: 46vw;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(80%, rgba(0, 0, 0, 0.15)));
   background-image: linear-gradient(180deg, #fff, rgba(0, 0, 0, 0.15) 80%);
 }
@@ -1395,7 +1403,7 @@ p {
   display: -ms-flexbox;
   display: flex;
   padding-top: 80px;
-  padding-bottom: 160px;
+  padding-bottom: 120px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1418,7 +1426,15 @@ p {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   grid-column-gap: 60px;
+  grid-row-gap: 60px;
 }
 
 .hamburger-menu {
@@ -1524,16 +1540,6 @@ p {
     grid-column-gap: 50px;
   }
 
-  .project-block.other {
-    width: 330px;
-    height: 290px;
-    max-width: 39%;
-  }
-
-  .project-image__block.other {
-    max-height: 204px;
-  }
-
   .contact-section.inner {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
@@ -1592,10 +1598,10 @@ p {
 
   .project-credits {
     max-width: 50%;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -1877,11 +1883,6 @@ p {
     margin-top: 0px;
   }
 
-  .project-block.other {
-    width: 285px;
-    max-width: none;
-  }
-
   .project-block__wide {
     height: auto;
   }
@@ -2151,8 +2152,8 @@ p {
   }
 
   .project-hero__image {
-    height: 65vw;
-    min-height: 65vw;
+    height: 50vw;
+    min-height: 50vw;
   }
 
   .project-credits {
@@ -2170,7 +2171,7 @@ p {
   }
 
   .project-hero__overlay {
-    height: 65vw;
+    height: 50vw;
     margin-top: 70px;
   }
 
@@ -2216,7 +2217,11 @@ p {
   }
 
   .project-grid__image {
-    height: 45vw;
+    height: 100vw;
+  }
+
+  .project-grid__image.wide {
+    height: 60vw;
   }
 
   .other-projects {
@@ -2311,7 +2316,11 @@ p {
   }
 
   .project-block.other {
-    width: 260px;
+    max-width: 85%;
+  }
+
+  .project-block__inner {
+    display: block;
   }
 
   .project-block__details {
@@ -2395,17 +2404,19 @@ p {
     height: 40px;
   }
 
-  .project-hero__image {
-    height: 320px;
-    min-height: 320px;
-  }
-
   .project-credits {
     grid-row-gap: 25px;
   }
 
-  .project-hero__overlay {
-    height: 320px;
+  .project-grid__column {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+
+  .project-grid__image.wide {
+    height: 55vw;
   }
 
   .menu-line {
