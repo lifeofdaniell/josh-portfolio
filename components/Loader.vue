@@ -12,7 +12,6 @@
         <div class="loader-text">
           Loading Experience...
         </div>
-        <!-- <img alt="" :src="testImage"> -->
       </div>
     </div>
   </div>

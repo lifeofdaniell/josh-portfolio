@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Loader />
     <Nav />
     <PageExit />
     <transition
