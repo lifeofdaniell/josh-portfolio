@@ -1,44 +1,36 @@
 <template>
-  <div>
-    <Nav />
-    <Menu />
+  <div class="noscroll">
     <BusTrack />
 
-    <div ref="container" class="container">
-      <div class="hero">
+    <div ref="container" class="container" @scroll="moveBus">
+      <div id="hero" class="hero">
         <div class="hero-canvas__wrapper">
           <div class="hero-canvas">
             <div class="relative no-touch">
               <div class="hero-canvas__inner">
                 <h1 class="h0">
-                  Hello I&#x27;m Josh,<br>A Visual Designer<br>Based in <span class="yellow-bg">Lagos</span>
+                  Hello I&#x27;m Josh,<br />A Visual Designer<br />Based in
+                  <span class="yellow-bg">Lagos</span>
                 </h1>
               </div>
               <div class="hero-canvas__subtext">
-                <h5>I’m about to take you on a visual journey with me. Enjoy!</h5>
+                <h5>
+                  I’m about to take you on a visual journey with me. Enjoy!
+                </h5>
               </div>
-              <a class="button w-inline-block" href="#">
+              <div class="button w-inline-block" @click="goToAbout">
                 <div class="button__inner">
                   <div>View my journey</div>
                 </div>
                 <div class="button__double"></div>
-              </a>
+              </div>
             </div>
             <div class="canvas-wrapper">
-              <div class="w-embed">
-                <canvas id="myArtboard" class="drawing" height="100%" width="100%"></canvas>
-                <style>
-                  .no-touch,
-                  .tool-block {
-                  pointer-events: none;
-                  user-select: none;
-                  }
-
-                  .button {
-                  pointer-events: auto;
-                  }
-                </style>
-              </div>
+              <canvas
+                id="myArtboard"
+                class="drawing"
+                height="100%"
+                width="100%"></canvas>
             </div>
             <div class="tool-block ai"></div>
             <div class="tool-block ps"></div>
@@ -49,16 +41,25 @@
           <div class="hero-canvas__double"></div>
         </div>
       </div>
-      <div class="about-section">
+      <div id="about" class="about-section">
         <div class="about-section__inner">
           <div>
             <div class="about-text__wrapper">
-              <h3>I craft beautiful experiences &amp; solve business problems using design.</h3>
+              <h3>
+                I craft beautiful experiences &amp; solve business problems
+                using design.
+              </h3>
               <h5>
-                I’m a T-shaped designer with over 3 years of experience. What makes me stand out is my intricate
-                attention to details and this enables me always deliver highly executed projects. Currently I work
-                with the rockstar design team at <a class="text-link" href="http://check-dc.com" target="_blank">Check
-                  DC</a> where I also get to highly contribute on <a
+                I’m a T-shaped designer with over 3 years of experience. What
+                makes me stand out is my intricate attention to details and this
+                enables me always deliver highly executed projects. Currently I
+                work with the rockstar design team at
+                <a
+                  class="text-link"
+                  href="http://check-dc.com"
+                  target="_blank">Check DC</a>
+                where I also get to highly contribute on
+                <a
                   class="text-link"
                   href="http://nigerianmockups.com"
                   target="_blank">nigerianmockups.com</a>.
@@ -91,7 +92,10 @@
                 <h5 class="sbold">
                   Want to know more?
                 </h5>
-                <a class="button w-inline-block" href="#">
+                <a
+                  class="button w-inline-block"
+                  href="https://www.dropbox.com/s/s952d81odsz36wc/Joshua%20Oladiti%20Resume.pdf?dl=0"
+                  target="_blank">
                   <div class="button__inner external">
                     <div>View my resume</div>
                   </div>
@@ -108,36 +112,43 @@
                   class="image"
                   loading="lazy"
                   sizes="298px"
-                  src="https://res.cloudinary.com/areoladaniel-com/image/upload/v1652466044/portrait_14bc047765.jpg">
+                  src="https://res.cloudinary.com/areoladaniel-com/image/upload/v1652466044/portrait_14bc047765.jpg" />
               </div>
               <div class="about-image__double"></div>
               <div class="about-image__hanger"></div>
             </div>
             <div class="about-image__subtext">
               <h5>
-                When I’m not designing I’m either listening to SDC 🌴, The Cavemen 🌴 &amp; Burna Boy 🦍 or
-                rewatching an old Al Pacino classic.
+                When I’m not designing I’m either listening to SDC 🌴, The
+                Cavemen 🌴 &amp; Burna Boy 🦍 or rewatching an old Al Pacino
+                classic.
               </h5>
             </div>
           </div>
         </div>
       </div>
-      <div class="project-section first">
+      <div id="client" class="project-section first">
         <div class="project-section__inner">
           <div class="project-section__header">
             <h2>Recent Projects</h2>
           </div>
           <div class="project-block__wrapper">
-            <nuxt-link v-for="project in projectsData.data" :key="project.id" class="project-block w-inline-block" :to="'projects/' + project.attributes.slug">
+            <nuxt-link
+              v-for="project in projectsData.data"
+              :key="project.id"
+              class="project-block w-inline-block"
+              :to="'projects/' + project.attributes.slug">
               <div class="project-block__inner">
                 <div class="project-image__block">
                   <img
                     alt=""
                     class="image"
                     loading="lazy"
-                    :src="project.attributes.cover_image.data !== null
-                      ? project.attributes.cover_image.data.attributes.url
-                      : require('static/assets/images/placeholderimg.svg')">
+                    :src="
+                      project.attributes.cover_image.data !== null
+                        ? project.attributes.cover_image.data.attributes.url
+                        : require('static/assets/images/placeholderimg.svg')
+                    " />
                 </div>
                 <div class="project-details__block">
                   <div>
@@ -153,7 +164,7 @@
           </div>
         </div>
       </div>
-      <div class="project-section fun">
+      <div id="fun" class="project-section fun">
         <div class="project-section__inner">
           <div class="project-section__header fun">
             <h2 class="no-margin">
@@ -162,7 +173,7 @@
             <div class="line"></div>
           </div>
           <div class="project-block__wrapper">
-            <a class="project-block__wide w-inline-block" href="#">
+            <!--   <a class="project-block__wide w-inline-block" href="#">
               <div class="project-block__inner">
                 <div class="project-image__block wide"><img
                   alt=""
@@ -176,21 +187,33 @@
               <div class="project-block__double"></div>
               <div class="project-block__details">Moovies is a repository of nostalgic scenes from classic movies,
                 sereis &amp; TV shows. Designed by me and developed by Tomide Alonge</div>
-            </a>
-            <a class="project-block__wide w-inline-block" href="#">
+            </a> -->
+            <a
+              v-for="project in funProjectsData.data"
+              :key="project.id"
+              class="project-block__wide w-inline-block"
+              :href="project.attributes.link"
+              target="_blank">
               <div class="project-block__inner">
-                <div class="project-image__block wide"><img
-                  alt=""
-                  class="image"
-                  loading="lazy"
-                  src="https://res.cloudinary.com/areoladaniel-com/image/upload/v1652466024/Frame_6_7aed7aa1b8.jpg"></div>
+                <div class="project-image__block wide">
+                  <img
+                    alt=""
+                    class="image"
+                    loading="lazy"
+                    :src="
+                      project.attributes.cover_image.data !== null
+                        ? project.attributes.cover_image.data.attributes.url
+                        : require('static/assets/images/placeholderimg.svg')
+                    " />
+                </div>
                 <div class="project-details__block">
-                  <div>Explore Music 🌴</div>
+                  <div>{{ project.attributes.name }}</div>
                 </div>
               </div>
               <div class="project-block__double"></div>
-              <div class="project-block__details bottom">Explore music 🌴 is a project dedicated to all alternative
-                artistes in Nigeria that I am big fan of.</div>
+              <div class="project-block__details bottom">
+                {{ project.attributes.description }}
+              </div>
             </a>
           </div>
         </div>
@@ -198,7 +221,7 @@
           Fun Projects
         </div>
       </div>
-      <ContactSection />
+      <ContactSection id="contact" />
     </div>
   </div>
 </template>
@@ -207,71 +230,175 @@
 if (!globalThis.document) {
   global.document = {}
 }
-  export default {
-    asyncData({ store, error }) {
-      const fetchProjects = store.dispatch('fetchContent', {
-        page: 'projects'
-      })
-      return Promise.all([fetchProjects])
+export default {
+  asyncData({ store, error }) {
+    const fetchProjects = store.dispatch('fetchContent', {
+      page: 'projects'
+    })
+    const fetchFunProjects = store.dispatch('fetchContent', {
+      page: 'fun-projects?populate=cover_image'
+    })
+    return Promise.all([fetchProjects, fetchFunProjects])
       .then((responses) => {
-      const [projectsData] = responses
-       return { projectsData }
+        const [projectsData, funProjectsData] = responses
+        return { projectsData, funProjectsData }
       })
       .catch(responseError => error(responseError))
-    },
+  },
 
-    data () {
-      return {}
-    },
+  data() {
+    return {}
+  },
 
-    head () {
-      return {
-        htmlAttrs: {
-          lang: 'en',
-          'data-wf-page': '62409edd7b3a33dfad3b3e9f',
-          'data-wf-site': '62409edd7b3a3354f43b3e9e'
-        },
+  head() {
+    return {
+      htmlAttrs: {
+        lang: 'en',
+        'data-wf-page': '62409edd7b3a33dfad3b3e9f',
+        'data-wf-site': '62409edd7b3a3354f43b3e9e'
+      },
+      title: this.title,
+      meta: [...this.meta]
+    }
+  },
+
+  computed: {
+    meta() {
+      return this.mxMetaUtils({
         title: this.title,
-        meta: [...this.meta]
-      }
-    },
-
-    computed: {
-      meta () {
-        return this.mxMetaUtils({
-          title: this.title,
-          description: this.description
-        })
-      },
-
-      description () {
-        return this.mxDescription
-      },
-
-      title () {
-        return 'Joshua Oladiti | Portfolio'
-      }
-    },
-
-    mounted () {
-      this.$nextTick(() => {
-        this.$initWebflow()
+        description: this.description
       })
-      this.$nuxt.$emit('update-locomotive')
-      this.$horizontalScroll(this.$refs.container)
-      this.styleProjects()
     },
 
-    methods: {
-      styleProjects() {
-        const projects = document.querySelectorAll('.project-block')
-        projects.forEach((item, index) => {
-          if (index % 2 === 0) {
-            item.classList.add('bottom')
-          }
-        })
+    description() {
+      return this.mxDescription
+    },
+
+    title() {
+      return 'Joshua Oladiti | Portfolio'
+    }
+  },
+
+  mounted() {
+    this.$nuxt.$emit('update-locomotive')
+    this.$floatingBox()
+    this.$swingingImage()
+    this.styleProjects()
+    this.attachEvents()
+  },
+
+  methods: {
+    styleProjects() {
+      const projects = document.querySelectorAll('.project-block')
+      projects.forEach((item, index) => {
+        if (index % 2 === 0) {
+          item.classList.add('bottom')
+        }
+      })
+    },
+
+    canvasDrawing() {
+      // When true, moving the mouse draws on the canvas
+      let isDrawing = false
+      let x = 0
+      let y = 0
+
+      const myArtboard = document.getElementById('myArtboard')
+      const context = myArtboard.getContext('2d')
+      context.canvas.width = window.innerWidth
+      context.canvas.height = window.innerHeight
+      // event.offsetX, event.offsetY gives the (x,y) offset from the edge of the canvas.
+
+      // Add the event listeners for mousedown, mousemove, and mouseup
+      window.addEventListener('resize', function resize() {
+        context.canvas.width = window.innerWidth
+        context.canvas.height = window.innerHeight
+      })
+
+      myArtboard.addEventListener('mousedown', (e) => {
+        x = e.offsetX
+        y = e.offsetY
+        isDrawing = true
+        console.log(isDrawing)
+      })
+
+      myArtboard.addEventListener('mousemove', (e) => {
+        if (isDrawing === true) {
+          drawLine(context, x, y, e.offsetX, e.offsetY)
+          x = e.offsetX
+          y = e.offsetY
+        }
+      })
+
+      window.addEventListener('mouseup', (e) => {
+        if (isDrawing === true) {
+          drawLine(context, x, y, e.offsetX, e.offsetY)
+          x = 0
+          y = 0
+          isDrawing = false
+        }
+      })
+
+      function drawLine(context, x1, y1, x2, y2) {
+        context.beginPath()
+        context.strokeStyle = 'black'
+        context.lineWidth = 2
+        context.moveTo(x1, y1)
+        context.lineTo(x2, y2)
+        context.stroke()
+        context.closePath()
       }
+    },
+
+    horizontalScroll(e) {
+      e.currentTarget.scrollLeft += e.deltaY
+    },
+
+    attachEvents() {
+      const scroller = document.querySelector('.container')
+      if (window.innerWidth > 767) {
+        scroller.addEventListener('mousewheel', this.horizontalScroll)
+      } else {
+        scroller.removeEventListener('mousewheel', this.horizontalScroll)
+      }
+    },
+
+    moveBus(e) {
+      const bus = document.querySelector('.bus')
+      this.$gsap.to(bus, {
+        left: `${(e.target.scrollLeft / e.target.scrollWidth) * 100 + 10}vw`
+      })
+    },
+
+    goToAbout() {
+      this.$gsap.to('.container', {
+        duration: 1,
+        scrollTo: '#about'
+      })
     }
   }
-
+}
 </script>
+
+<style>
+.noscroll {
+  overflow: hidden;
+}
+
+.button__inner {
+  right: 0px;
+  bottom: 0px;
+  transition: bottom 300ms ease, right 300ms ease;
+}
+
+.button:hover > .button__inner {
+  right: -5px;
+  bottom: -5px;
+}
+.about-image__wrapper {
+  transform-origin: 50% 0%;
+}
+.about-section {
+  overflow: hidden;
+}
+</style>

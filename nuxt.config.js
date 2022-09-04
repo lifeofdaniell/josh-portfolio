@@ -7,7 +7,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
- env: {
+  env: {
     siteURL: process.env.SITE_URL,
     baseURL: process.env.BASE_URL,
     mediaURL: process.env.MEDIA_URL,
@@ -25,20 +25,15 @@ export default {
   trailingSlash: false,
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/both.client',
-    '@/plugins/client.client',
-    '@/plugins/mixins',
-    '@/plugins/prototypes',
     '@/plugins/axios',
-    '@/plugins/filters',
-    '@/plugins/component.client',
-    '@/plugins/directive.client',
-    '@/plugins/webflow.client'
+    '@/plugins/mixins',
+    { src: '@/plugins/animation', ssr: false },
+    { src: '@/plugins/both', ssr: false },
+    { src: '@/plugins/client', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -70,11 +65,53 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
-      manifest: pwaUtils.getManifest()
+    manifest: pwaUtils.getManifest()
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['gsap']
+  },
+
+  pageTransition: {
+    name: 'exit',
+    mode: 'out-in',
+    css: false,
+    appear: false,
+
+    beforeEnter(el, done) {
+      this.$gsap.set('.page-transition', {
+        xPercent: 100
+      })
+    },
+
+    enter(el, done) {
+      const tl = this.$gsap.timeline({
+        onComplete: done
+      })
+      tl.to('.page-transition', {
+        delay: 0.25,
+        xPercent: 200,
+        duration: 0.75,
+        ease: 'power2.inOut'
+      })
+    },
+
+    beforeLeave(el, done) {
+      this.$gsap.set('.page-transition', {
+        xPercent: 0
+      })
+    },
+
+    leave(el, done) {
+      const tl = this.$gsap.timeline({
+        onComplete: done
+      })
+      tl.to('.page-transition', {
+        xPercent: 100,
+        duration: 0.75,
+        ease: 'power2.inOut'
+      })
+    }
   }
 }
