@@ -93,12 +93,17 @@ export default {
     goToHome() {
       this.$router.push('/')
       this.closeMenu()
-      this.$gsap.to('.container', {
-        duration: 1,
-        scrollTo: {
-          x: '#hero'
-        }
-      })
+      if (window.innerWidth > 767) {
+        this.$gsap.to('.container', {
+          duration: 1,
+          scrollTo: '#hero'
+        })
+      } else {
+        this.$gsap.to(window, {
+          duration: 1,
+          scrollTo: '#hero'
+        })
+      }
     }
   }
 }

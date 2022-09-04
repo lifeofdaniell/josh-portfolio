@@ -371,10 +371,20 @@ export default {
     },
 
     goToAbout() {
-      this.$gsap.to('.container', {
-        duration: 1,
-        scrollTo: '#about'
-      })
+      if (window.innerWidth > 767) {
+        this.$gsap.to('.container', {
+          duration: 1,
+          scrollTo: '#about'
+        })
+      } else {
+        this.$gsap.to(window, {
+          duration: 1,
+          scrollTo: {
+            y: '#about',
+            offsetY: 50
+          }
+        })
+      }
     }
   }
 }
